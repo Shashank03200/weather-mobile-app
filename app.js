@@ -47,7 +47,6 @@ app.post("/", (req, res) => {
                     const { temp, temp_min, temp_max, humidity } = weatherData.main;
                     const speed = weatherData.wind.speed;
                     const country = getName(weatherData.sys.country);
-                    console.log(country);
                     const { main, description, icon } = weatherData.weather[0];
                     const city = weatherData.name;
                     const { sunrise, sunset } = weatherData.sys;

@@ -4,17 +4,18 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.0",
     "body-parser": "^1.19.0",
+    "country-list": "^2.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "node-fetch": "^2.6.1",
     "pkg": "^4.4.9"
-  }
+  },
+  "devDependencies": {}
 }

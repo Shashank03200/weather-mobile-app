@@ -1,4 +1,3 @@
-
 <p id = "urlPara" style="visibility: hidden;"><%= (typeof  backgroundUrl  != 'undefined')?backgroundUrl:"notFound"%></p>   
 
 <p id="code" style="visibility: hidden;"><%= (typeof  code  != 'undefined')?code:"0"%></p>
@@ -7,40 +6,40 @@
 </div> <%# End of wrapper div %> 
 <footer>Copyright &copy; 2020</footer>
 
-
 <script>
 
 
-   let bodyElement = document.querySelector("body");
-   
-   // When the page has completed rendering
-   // produce the text of the invisible div called 
-   //urlPara as a  promise using async await
-   async function Perform(){
-      let text = await document.querySelector("#urlPara").innerHTML;
-      return text;
-   }
-   
-   // Resolving the promise and setting the page 
-   // background using the urlPara inner text
-   const response = Perform();
-   response.then((text)=>{
-      if(text=="notFound")
-         text = 'https://images.unsplash.com/photo-1526239187794-f8c27c7872ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=100'
+    let bodyElement = document.querySelector("body");
+    
+    // When the page has completed rendering
+    // produce the text of the invisible div called 
+    //urlPara as a  promise using async await
+    async function Perform(){
+       let text = await document.querySelector("#urlPara").innerHTML;
+       return text;
+    }
+    
+    // Resolving the promise and setting the page 
+    // background using the urlPara inner text
+    const response = Perform();
+    response.then((text)=>{
+       if(text=="notFound")
+          text = 'https://images.unsplash.com/photo-1526239187794-f8c27c7872ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=100'
+ 
+       bodyElement.style.backgroundImage = `url(${text})`
+ 
+       //One result have been processed and alert msg is displayed this code dismisses the alert after 3 seconds
+       const code = $("#code").text();
+       if(code!="0"){
+          window.setTimeout(function() {
+             $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove(); 
+             });
+          }, 2000);
+       }
+    })
+ 
+ </script>
 
-      bodyElement.style.backgroundImage = `url(${text})`
-
-      //One result have been processed and alert msg is displayed this code dismisses the alert after 3 seconds
-      const code = $("#code").text();
-      if(code!="0"){
-         window.setTimeout(function() {
-            $(".alert").fadeTo(500, 0).slideUp(500, function(){
-               $(this).remove(); 
-            });
-         }, 2000);
-      }
-   })
-
-</script>
 </body>
 </html>

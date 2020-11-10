@@ -5,7 +5,10 @@ const https = require('https');
 const ejs = require('ejs');
 const app = express();
 const _ = require('lodash');
-const fetch = require('node-fetch');
+const {getName} = require('country-list')
+
+
+weatherList  = [];
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -37,11 +40,14 @@ app.post("/", (req, res) => {
                 
     
                 if (weatherData.cod == 404) {
-                    res.render('home', { code: weatherData.cod, message: _.capitalize(weatherData.message), city });
+                    res.render('home', { code: weatherData.cod, message: _.capitalize(weatherData.message),
+                        weatherList });
                 } else if (weatherData.cod == 200) {
     
                     const { temp, temp_min, temp_max, humidity } = weatherData.main;
                     const speed = weatherData.wind.speed;
+                    const country = getName(weatherData.sys.country);
+                    console.log(country);
                     const { main, description, icon } = weatherData.weather[0];
                     const city = weatherData.name;
                     const { sunrise, sunset } = weatherData.sys;
@@ -66,14 +72,12 @@ app.post("/", (req, res) => {
         
                             const backgroundUrl = data.results[0].urls.regular;
                             
-                            res.render('home', {
-                                backgroundUrl,
-                                code: "200",
-                                message: "City weather found.",
+                            weatherList.push({ 
+                                code:"200",
                                 city,
+                                country,
                                 main,
                                 iconUrl,
-                                humidity,
                                 currTime : new Date().toLocaleTimeString("en-US"),
                                 currDate: new Date().toLocaleDateString('en-IN'),
                                 temp,
@@ -84,6 +88,13 @@ app.post("/", (req, res) => {
                                 speed,
                                 
                             })
+
+                            res.render('home', {
+                                weatherList, 
+                                city,
+                                backgroundUrl,
+                                code: "200",
+                                message: "City weather found."})
                         })
                     }
                     fetchUrl();

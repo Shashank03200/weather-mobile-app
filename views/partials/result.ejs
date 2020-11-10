@@ -1,35 +1,45 @@
-<% if(typeof code!='undefined') { %> 
+<% if(typeof weatherList!='undefined') { %> 
 
-    <% if(code == "200") {%> 
-     
-        <div class="container result-container">
+  <% weatherList.slice().reverse().forEach((item, index) => { %>
 
-          <div class="side-child">
-            <div class="img-box">  
-              <img src="<%= iconUrl %> " alt="">
-            </div>
-            <div class="currTime"><%= currTime %></div>
-            <div class="currDate"><%= currDate %> </div>
-          </div>
-          
-          <div class="city"><%= city %> </div>  
-          <div class="temp"><%= temp %> &deg;C</div>
-          <div class="main"><%= main %></div>
-          <div class="min-max">
-            <%= temp_min %>&deg; C&nbsp;/&nbsp;
-            <%= temp_max %>&deg; C
-          </div>
-          <%# <div class="description">description expression here</div> %>
+    <div class="container result-container" 
+    <% if(typeof code!= 'undefined') { %>
+      <% if(code=="200"){ %> 
+        <% if(index==0) { %>
+          style = "background-color:rgba(25, 40, 177);"
+        <% } %>
+      <% } %>
+    <% } %>
+    
+    >
 
-          <div class="wind">
-            <img src="https://i.ibb.co/H4CV7gV/wind.png" alt="wind" border="0">
-            <%= speed %> m/s
-            &nbsp;
-            <%= wind_dir %> 
-          </div>
-             
+      <div class="side-child">
+        <div class="img-box">  
+          <img src="<%= item.iconUrl %> " alt="">
+        </div>
+        <div class="currTime"><%= item.currTime %></div>
+        <div class="currDate"><%= item.currDate %> </div>
       </div>
+      
+      <div class="city"><%= item.city %>, <%= item.country %> </div>  
+      <div class="temp"><%= item.temp %> &deg;C</div>
+      <div class="main"><%= item.main %></div>
+      <div class="min-max">
+        <%= item.temp_min %>&deg; C&nbsp;/&nbsp;
+        <%= item.temp_max %>&deg; C
+      </div>
+      <%# <div class="description">description expression here</div> %>
 
-  <% } %> 
+      <div class="wind">
+        <img src="https://i.ibb.co/H4CV7gV/wind.png" alt="wind" border="0">
+        <%= item.speed %> m/s
+        &nbsp;
+        <%= item.wind_dir %> 
+      </div>
+         
+  </div>
+
+    
+  <% }); %> 
 
 <% } %> 

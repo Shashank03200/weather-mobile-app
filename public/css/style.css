@@ -79,12 +79,13 @@ footer{
 .result-container{
     font: 18px "Noto Sans JP", Consolas;
     color: white;
-    background: rgba(25, 40, 177);
+    background-color: rgb(103, 114, 163);
     border-radius: 10px;
     padding:  15px 20px;
 }
 
 label, input, .btn-primary{
+   
     margin:20px auto;
 }
 .temp{
@@ -105,7 +106,7 @@ label, input, .btn-primary{
 }
 
 .img-box{
-    background-color: white;
+    background-color: rgb(156, 156, 156);
     border-radius: 55%;
     margin-bottom: 10px;
 }

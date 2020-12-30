@@ -1,5 +1,4 @@
-const https = require('https');
-const bodyParser = require('body-parser');
+
 const fetch = require('node-fetch');
 
 module.exports =  async function (icon, description) {

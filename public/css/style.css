@@ -10,8 +10,10 @@ body{
     background: overlay(rgba(0,0,0,0.3));
     background-size: cover;
     background-position: center;
-    background-repeat: repeat-y;
+    background-repeat: no-repeat;
 }
+ 
+
 
 #main{
     overflow: auto;
@@ -118,4 +120,91 @@ label, input, .btn-primary{
     top: 0;
     width: 100%;
     z-index: 3;
+}
+
+
+
+body {
+  background-color: #242F3F;
+}
+
+
+/*Loader Styling*/
+.preload{
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(4, 14, 22);
+    width: 100%;
+    height: 100vh;
+    transition: opacity ease 1s;
+}
+
+.preload-remove{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #Fff;
+  
+  animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  25% {
+    transform: rotate(180deg);
+  }
+  
+  50% {
+    transform: rotate(180deg);
+  }
+  
+  75% {
+    transform: rotate(360deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+  
+  25% {
+    height: 0%;
+  }
+  
+  50% {
+    height: 100%;
+  }
+  
+  75% {
+    height: 100%;
+  }
+  
+  100% {
+    height: 0%;
+  }
 }

@@ -8,7 +8,7 @@ const _ = require('lodash');
 const {getName} = require('country-list')
 
 
-weatherList  = [];
+let weatherList  = [];
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,6 +18,7 @@ app.set('view engine', 'ejs');
 
 // Get Route
 app.get("/", (req, res) => {
+    weatherList = [];
     res.render('home');
 })
 

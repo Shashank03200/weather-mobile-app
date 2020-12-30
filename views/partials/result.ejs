@@ -1,16 +1,29 @@
 <% if(typeof weatherList!='undefined') { %> 
 
+  
+
   <% weatherList.slice().reverse().forEach((item, index) => { %>
 
+    <% if(code === "404" && index === 0) { %> 
+
+      <a href="#previous" class="history-sec-link"><div class="history-btn">History</div></a>
+      <a id="previous"></a>
+
+    <% } else if(code === "200" && index === 1) { %>
+
+      <a href="#previous" class="history-sec-link"><div class="history-btn">History</div></a>
+      <a id="previous"></a>
+
+    <% } %>
+
     <div class="container result-container" 
-    <% if(typeof code!= 'undefined') { %>
-      <% if(code=="200"){ %> 
-        <% if(index==0) { %>
-          style = "background-color:rgba(25, 40, 177);"
+      <% if(typeof code!= 'undefined') { %>
+        <% if(code=="200"){ %> 
+          <% if(index==0) { %>
+            style = "background-color:rgba(25, 40, 177);"
+          <% } %>
         <% } %>
       <% } %>
-    <% } %>
-    
     >
 
       <div class="side-child">

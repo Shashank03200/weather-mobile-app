@@ -1,31 +1,32 @@
 <% if(typeof weatherList!='undefined') { %> 
 
-  
-
   <% weatherList.slice().reverse().forEach((item, index) => { %>
 
-    <% if(code === "404" && index === 0) { %> 
-
-      <a href="#previous" class="history-sec-link"><div id="previous" class="history-btn"  >History</div></a>
-     
-
-    <% } else if(code === "200" && index === 1) { %>
-
-      <a href="#previous" class="history-sec-link"><div id="previous" class="history-btn">History</div></a>
-      
-
-    <% } %>
-
-    <div class="container result-container" 
       <% if(typeof code!= 'undefined') { %>
-        <% if(code=="200"){ %> 
-          <% if(index==0) { %>
-            style = "background-color:rgba(25, 40, 177);"
-          <% } %>
+        <% if(code=="200"){ %>
+           
+            <% if(index==0) { %>
+              <div class="result-div-section">
+                <div  
+                style = "background-color:rgba(25, 40, 177);"
+                class="container result-container"
+                >
+                
+            <% } else { %>
+              <div class="container result-container previous-container">
+            <% } %>
+            
+        <% } else if(code == "404") { %>
+          <% if( index == 0) { %>
+            <div class="result-div-section">
+            <a href="#previous" class="history-sec-link"><div id="previous" class="history-btn">History</div></a>
+          </div>
+          <% } %> 
+              <div class="container result-container previous-container" >
         <% } %>
-      <% } %>
-    >
-
+      
+    
+    
       <div class="side-child">
         <div class="img-box">  
           <img src="<%= item.iconUrl %> " alt="">
@@ -51,7 +52,13 @@
       </div>
          
   </div>
+ 
+  <% if( index == 0 && weatherList.length > 1 &&  code === "200") { %>
+    <a href="#previous" class="history-sec-link"><div id="previous" class="history-btn">History</div></a>
+  </div>
+  <% } %> 
 
+  <% } %>
     
   <% }); %> 
 

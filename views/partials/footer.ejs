@@ -8,7 +8,12 @@
 
 <script>
 
+   // let windowHeight = window.outerHeight;
+   // let windowWidth = window.outerWidth;
 
+   let style = document.createElement('style');
+   document.head.appendChild(style);
+  
     let bodyElement = document.querySelector("body");
     
     // When the page has completed rendering
@@ -38,6 +43,7 @@
           }, 2000);
        }
     })
+
 
     window.addEventListener('load', ()=>{
        const preload = document.querySelector(".preload");

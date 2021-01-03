@@ -1,0 +1,24 @@
+<div class="container">
+            
+    <form action="/" method="post">
+    <div class="form-group row row-main">
+        
+            <div class="col-2 city-label-div">
+            <label for="city" class="col-form-label">Enter a city: </label>
+            </div>
+            <div class="col-10">
+                <div class="row row-inner">
+                    <div class="col-9">
+                        <input type="text" name="city" id="city" class="form-control" value="<%= (typeof city != 'undefined') ? city: ''%> ">                
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+
+            </div>    
+            
+            
+    </div>
+    </form>
+</div>    

@@ -41,9 +41,8 @@ footer{
     letter-spacing: 5px;;
 }
 
-.btn-primary{
-    width: 80%;
-    padding: 3px;
+.submit-btn{
+   padding: 3px 30px;
 }
 
 .form-group-row{
@@ -57,12 +56,11 @@ footer{
     font-family: "Source Sans Pro", 'Times New Roman', Times, serif;
     font-size: 20px;
 }
-.col-form-label{
-    width: 100%;
+.city-label-div{
     text-align: center;
 }
 
-.col-form-label, .btn-primary{
+.city-label-div, .submit-btn{
     font: 20px "Noto Sans JP";
 }
 
@@ -75,7 +73,7 @@ footer{
     font: 20px "Montserrat", Arial;
 }
 
-.container{
+.container-input{
     margin-top: 5vh;
     background: rgba(204, 204, 204, 0.5);
     border-radius: 10px;
@@ -89,7 +87,11 @@ footer{
     padding:  15px 20px;
 }
 
-label, input, .btn-primary{
+.previous-container{
+  margin: 5vh auto;
+}
+
+label, input, .submit-btn{
     margin:20px auto;
 }
 .temp{
@@ -127,7 +129,7 @@ label, input, .btn-primary{
 
 
 body {
-  background-color: #242F3F;
+  background-color: #fdb827;
 }
 
 
@@ -212,24 +214,55 @@ body {
 
 .history-btn{
   font-size: 20px;
-  color: #fdb827;
+  color: #23120b;
   text-align: center;
   font-family: 'Noto Sans JP', sans-serif;
-  background-color:#23120b;
+  background-color:#fdb827;
   border-radius: 10px;
   box-shadow: 2px 5px 20px black;
   width: max-content;
   cursor: pointer;
   padding: 14px;
-  margin: 10px auto;
-  margin-top: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 40%;
 }
 
 .history-btn:hover{
-  background-color: #6e3d27;
+  background-color: #eeda99;
 }
 
 .history-sec-link:hover{
   text-decoration: none;
 }
 
+.result-div-section{
+  min-height:62vh;
+  background-color: darkgrey;
+  position: relative;
+}
+
+@media (max-width: 575px) {
+  .heading{
+    background-color: rgba(248,218,218,0.5);
+    font-size: 40px;
+    letter-spacing: 3px;
+    color: rgb(12, 8, 49);
+  }
+
+  .submit-btn-div{
+    text-align: center;
+  }
+
+  body{
+    background-repeat: repeat-x;
+  }
+
+  .result-div-section{
+    min-height:47vh;
+    background-color: darkgrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

@@ -14,7 +14,7 @@ body{
     background: overlay(rgba(0,0,0,0.3));
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
 }
 
 #main{
@@ -128,10 +128,6 @@ label, input, .submit-btn{
 
 
 
-body {
-  background-color: #fdb827;
-}
-
 
 /*Loader Styling*/
 .preload{
@@ -225,7 +221,8 @@ body {
   padding: 14px;
   position: absolute;
   bottom: 0;
-  left: 40%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .history-btn:hover{
@@ -237,12 +234,11 @@ body {
 }
 
 .result-div-section{
-  min-height:62vh;
-  background-color: darkgrey;
+  min-height:62vh; 
   position: relative;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 575px) and (min-width: 411px) {
   .heading{
     background-color: rgba(248,218,218,0.5);
     font-size: 40px;
@@ -254,15 +250,59 @@ body {
     text-align: center;
   }
 
-  body{
-    background-repeat: repeat-x;
+  .result-div-section{
+    min-height:42vh;
+    position: relative;
   }
 
+  
+  .history-btn{
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .result-container{
+    font: 14px "Noto Sans JP", Consolas;
+    width: 95%;
+    border-radius: 14px;
+    padding:  15px 20px;
+  }
+  .temp{
+    font-size: 32px;
+  }
+  .img-box img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .footer{
+    margin-top: 46vh;
+  }
+
+}
+
+@media (max-width: 575px) and (min-width: 410px){
   .result-div-section{
-    min-height:47vh;
-    background-color: darkgrey;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    min-height:46vh;
+  }
+  .footer{
+    margin-top: 46vh;
+  }
+}
+
+@media (max-width: 320px) {
+  label, input, .submit-btn {
+    margin: 8px auto;  
+  }
+  .history-btn{
+    padding: 10px;
+    font-size: 16px; 
+  }
+  .result-div-section{
+    min-height:45vh;
+    position: relative;
+  }
+  .footer{
+    margin-top: 46vh;
   }
 }

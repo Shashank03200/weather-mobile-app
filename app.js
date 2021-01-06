@@ -1,4 +1,5 @@
 
+const compression = require('compression')
 const express = require('express');
 const bodyParser = require('body-parser');
 const https = require('https');
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 let weatherList = [];
 
 // Middlewares
+app.use(compression())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -25,7 +27,7 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
 
     // OpenWeather API Details
-    let city = req.body.city;
+    let city = req.body.city.trim();
     const apiKey = "9e30b929852f450e315f513ed438524f"
     const unit = "metric"
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`
@@ -72,7 +74,10 @@ app.post("/", (req, res) => {
                         var result = myFunc(icon, description);
                         result.then((data) => {
 
+                            // let noOfImages = data.results.length;
+                            // const randomImageNo = Math.floor(Math.random() * noOfImages);
                             const backgroundUrl = data.results[0].urls.regular;
+                            console.log(backgroundUrl);
 
                             weatherList.push({
                                 code: "200",
@@ -88,7 +93,6 @@ app.post("/", (req, res) => {
                                 temp_min, temp_max,
                                 wind_dir,
                                 speed,
-
                             })
 
                             res.render('home', {

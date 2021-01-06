@@ -37,15 +37,15 @@
       
       <div class="city"><%= item.city %>, <%= item.country %> </div>  
       <div class="temp"><%= item.temp %> &deg;C</div>
-      <div class="main"><%= item.main %></div>
+      <div class="main"><%= item.main %> : <span class="description"><%= item.description %></span></div>
       <div class="min-max">
         <%= item.temp_min %>&deg; C&nbsp;/&nbsp;
         <%= item.temp_max %>&deg; C
       </div>
-      <%# <div class="description">description expression here</div> %>
+        
 
       <div class="wind">
-        <img src="https://i.ibb.co/H4CV7gV/wind.png" alt="wind" border="0">
+        💨&nbsp;
         <%= item.speed %> m/s
         &nbsp;
         <%= item.wind_dir %> 

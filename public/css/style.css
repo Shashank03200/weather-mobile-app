@@ -33,13 +33,20 @@ footer{
 
 
 .heading{
-    background-color:  rgba(248,218,218,0.5);
-    margin-top: 40px;
-    font-size: 70px;
-    font-family: "Rubik";
-    text-align: center;
-    color: rgb(65, 58, 58);
-    letter-spacing: 5px;;
+  padding-top: 60px;
+  background-color: rgba(248,218,218,0.5);
+  color: black;
+  margin: auto;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  margin-top: -20px;
+  width: fit-content;
+  font-size: 70px;
+  font-family: "Rubik";
+  text-align: center;
+  letter-spacing: 5px;;
 }
 
 .submit-btn{

@@ -14,7 +14,7 @@ body{
     background: overlay(rgba(0,0,0,0.3));
     background-size: cover;
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: repeat-y;
 }
 
 #main{

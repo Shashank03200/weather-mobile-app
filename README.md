@@ -1,2 +1,2 @@
-The site is currently hosted at: https://young-falls-01069.herokuapp.com/
-Working on it to make it responsive.
+<strong>
+The site is currently hosted at: https://boiling-wildwood-56439.herokuapp.com/</strong>

@@ -380,5 +380,10 @@ label, input, .submit-btn{
     font-size: 20px;
   }
   
+}
 
+@media (max-height: 400px){
+  .result-div-section{
+    min-height: 90vh;
+  }
 }

@@ -84,7 +84,7 @@ app.post("/", (req, res) => {
                                 main,
                                 iconUrl,
                                 currTime: new Date().toLocaleTimeString("en-US"),
-                                currDate: new Date().toLocaleDateString('en-IN'),
+                                currDate: new Date().toLocaleDateString('en-GB'),
                                 temp,
                                 description: _.capitalize(description),
                                 sunrise_time, sunset_time,

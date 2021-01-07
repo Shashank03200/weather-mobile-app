@@ -8,11 +8,8 @@
 
 <script>
 
-   // let windowHeight = window.outerHeight;
-   // let windowWidth = window.outerWidth;
 
-   let style = document.createElement('style');
-   document.head.appendChild(style);
+   
   
     let bodyElement = document.querySelector("body");
     
@@ -41,6 +38,7 @@
                 $(this).remove(); 
              });
           }, 2000);
+
        }
     })
 
@@ -48,7 +46,18 @@
     window.addEventListener('load', ()=>{
        const preload = document.querySelector(".preload");
        preload.classList.add("preload-remove");
-
+       const code = $("#code").text();
+       if(code == "200"){
+         
+            var height = $(window).height();
+            console.log(height);
+            if(height < 450){
+               $('html, body').animate({
+                  scrollTop: $('.result-div-section').offset().top
+               }, 'slow');
+            }
+         
+       }
     })
  
  </script>

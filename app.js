@@ -47,29 +47,32 @@ app.post("/", (req, res) => {
                     });
                 } else if (weatherData.cod == 200) {
 
+
                     const { temp, temp_min, temp_max, humidity } = weatherData.main;
                     const speed = weatherData.wind.speed;
                     const country = getName(weatherData.sys.country);
-                    const { main, description, icon } = weatherData.weather[0];
+                    const { id: iconId, main, description, icon: iconName } = weatherData.weather[0];
                     const city = weatherData.name;
                     const { sunrise, sunset } = weatherData.sys;
-                    const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                    const iconUrl = `http://openweathermap.org/img/wn/${iconName}@2x.png`;
                     const sunrise_time = new Date(sunrise).toLocaleTimeString("en-US")
                     const sunset_time = new Date(sunset).toLocaleTimeString("en-US");
                     const angles = weatherData.wind.deg;
-
+                    console.log(weatherData.weather);
                     function degToCompass(num) {
                         var val = Math.floor((num / 22.5) + 0.5);
                         var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
                         return arr[(val % 16)];
                     }
                     const wind_dir = degToCompass(angles)
+                    const periodOfTime = iconName.endsWith("d") ? "-day-" : "-night-"
+                    const iconClassName = "wi wi-owm" + periodOfTime + iconId;
 
 
                     function fetchUrl() {
                         var myFunc = require('./image');
 
-                        var result = myFunc(icon, description);
+                        var result = myFunc(description);
                         result.then((data) => {
 
                             // let noOfImages = data.results.length;
@@ -91,6 +94,7 @@ app.post("/", (req, res) => {
                                 temp_min, temp_max,
                                 wind_dir,
                                 speed,
+                                iconClassName
                             })
 
                             res.render('home', {

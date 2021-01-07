@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-module.exports = async function (icon, description) {
+module.exports = async function (description) {
 
 
     const CLIENT_ID = "9hi8I_oLDrWv50uMPZ4EzCRt4Re0U_82DVaqB746DUQ";

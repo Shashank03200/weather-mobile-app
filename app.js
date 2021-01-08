@@ -75,7 +75,11 @@ app.post("/", (req, res) => {
                             // let noOfImages = data.results.length;
                             // const randomImageNo = Math.floor(Math.random() * noOfImages);
                             const backgroundUrl = data.results[0].urls.regular;
-                            console.log(backgroundUrl);
+                            // console.log(backgroundUrl);
+
+                            const curr_date = new Date();
+                            function pad(n) { return n < 10 ? "0" + n : n; }
+                            let currDate = pad(curr_date.getDate()) + "/" + pad(curr_date.getMonth() + 1) + "/" + curr_date.getFullYear();
 
                             weatherList.push({
                                 code: "200",
@@ -84,7 +88,7 @@ app.post("/", (req, res) => {
                                 main,
                                 iconUrl,
                                 currTime: new Date().toLocaleTimeString("en-US"),
-                                currDate: new Date().toLocaleDateString('en-GB'),
+                                currDate,
                                 temp,
                                 description: _.capitalize(description),
                                 sunrise_time, sunset_time,
